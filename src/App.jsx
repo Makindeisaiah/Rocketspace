@@ -3,6 +3,7 @@ import Hero from './components/Hero.jsx';
 import WhyChooseUs from './components/WhyChooseUs.jsx';
 import KeyFeatures from './components/KeyFeatures.jsx';
 import Testimonial from './components/Testimonial.jsx';
+import CTAFooter from './components/CTAFooter.jsx';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <WhyChooseUs />
       <KeyFeatures />
       <Testimonial />
+      <CTAFooter />
     </div>
   );
 }
