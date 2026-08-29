@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from './components/Hero.jsx';
 import WhyChooseUs from './components/WhyChooseUs.jsx';
 import KeyFeatures from './components/KeyFeatures.jsx';
+import Testimonial from './components/Testimonial.jsx';
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Hero />
       <WhyChooseUs />
       <KeyFeatures />
+      <Testimonial />
     </div>
   );
 }
