@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { 
   Megaphone, 
   CheckCircle2, 
@@ -7,12 +8,18 @@ import {
 
 export default function Testimonial() {
   return (
-    <section id="founder-testimonial" className="w-full bg-[#F3F4F5] py-16 sm:py-20 lg:py-28">
+    <section id="founder-testimonial" className="w-full bg-[#F3F4F5] py-16 sm:py-20 lg:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Framed Founder Photo with Overlapping Badges */}
-          <div className="lg:col-span-6 flex justify-center lg:justify-start">
+          <motion.div 
+            initial={{ opacity: 0, x: -35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="lg:col-span-6 flex justify-center lg:justify-start"
+          >
             <div className="relative w-full max-w-lg">
               
               {/* Outer Gray Frame/Container */}
@@ -79,10 +86,16 @@ export default function Testimonial() {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Founder Quote & Bio */}
-          <div className="lg:col-span-6 flex flex-col items-start text-left">
+          <motion.div 
+            initial={{ opacity: 0, x: 35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="lg:col-span-6 flex flex-col items-start text-left"
+          >
             
             {/* Pill Badge with Megaphone */}
             <div 
@@ -116,7 +129,7 @@ export default function Testimonial() {
               </p>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>

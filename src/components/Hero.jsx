@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, 
   Sparkles, 
@@ -17,24 +18,30 @@ export default function Hero() {
   return (
     <div className="min-h-screen bg-[#F3F4F5] flex flex-col antialiased text-neutral-900">
       {/* 1. Announcement Bar */}
-      {showAnnouncement && (
-        <div 
-          id="announcement-bar"
-          className="w-full bg-[#1F6363] text-white text-xs sm:text-sm font-medium py-2.5 px-4 relative flex items-center justify-center transition-all duration-300 z-50 shadow-sm"
-        >
-          <div className="flex items-center gap-2 text-center">
-            <span>🎉 Save 35% on launch. Join the waitlist!</span>
-          </div>
-          <button
-            id="close-announcement-btn"
-            onClick={() => setShowAnnouncement(false)}
-            aria-label="Close announcement"
-            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 p-1 text-white/80 hover:text-white rounded-md hover:bg-white/10 transition-colors cursor-pointer"
+      <AnimatePresence>
+        {showAnnouncement && (
+          <motion.div 
+            id="announcement-bar"
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -30, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="w-full bg-[#1F6363] text-white text-xs sm:text-sm font-medium py-2.5 px-4 relative flex items-center justify-center z-50 shadow-sm"
           >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-      )}
+            <div className="flex items-center gap-2 text-center">
+              <span>🎉 Save 35% on launch. Join the waitlist!</span>
+            </div>
+            <button
+              id="close-announcement-btn"
+              onClick={() => setShowAnnouncement(false)}
+              aria-label="Close announcement"
+              className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 p-1 text-white/80 hover:text-white rounded-md hover:bg-white/10 transition-colors cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* 2. Navbar */}
       <nav id="navbar" className="w-full bg-white border-b border-neutral-100/80 sticky top-0 z-40">
@@ -86,12 +93,14 @@ export default function Hero() {
 
           {/* Right Action Button */}
           <div className="hidden md:flex items-center">
-            <button 
+            <motion.button 
               id="nav-benefits-btn"
-              className="bg-[#1F6363] hover:bg-[#184F4F] text-white px-6 py-2.5 rounded-xl text-sm font-medium transition-all shadow-sm hover:shadow active:scale-95 cursor-pointer"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="bg-[#1F6363] hover:bg-[#184F4F] text-white px-6 py-2.5 rounded-xl text-sm font-medium transition-colors shadow-sm hover:shadow cursor-pointer"
             >
               Benefits
-            </button>
+            </motion.button>
           </div>
 
           {/* Mobile menu toggle */}
@@ -132,40 +141,60 @@ export default function Hero() {
             {/* Left Column */}
             <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-start text-left">
               {/* Badge */}
-              <div 
+              <motion.div 
                 id="hero-badge"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#d6eeeb] text-[#1F6363] text-xs sm:text-sm font-semibold mb-6 shadow-xs border border-teal-200/50"
               >
                 <Sparkles className="w-3.5 h-3.5 fill-[#1F6363]" />
                 <span>For businesses ready to scale faster</span>
-              </div>
+              </motion.div>
 
               {/* Headline */}
-              <h1 
+              <motion.h1 
                 id="hero-heading"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
                 className="text-4xl sm:text-5xl lg:text-[58px] xl:text-[62px] font-extrabold text-neutral-900 tracking-tight leading-[1.12] mb-6"
               >
                 Reliable Marketing Tool for Conversion
-              </h1>
+              </motion.h1>
 
               {/* Subtext */}
-              <p 
+              <motion.p 
                 id="hero-subtext"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
                 className="text-base sm:text-lg text-neutral-600 max-w-lg leading-relaxed mb-8"
               >
                 Automated marketing solutions to capture leads and drive growth.
-              </p>
+              </motion.p>
 
               {/* CTA Button */}
-              <button 
+              <motion.button 
                 id="hero-cta-btn"
-                className="bg-[#1F6363] hover:bg-[#184F4F] text-white px-8 py-3.5 rounded-xl font-semibold text-base shadow-sm hover:shadow-md transition-all active:scale-95 cursor-pointer mb-10 inline-flex items-center justify-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="bg-[#1F6363] hover:bg-[#184F4F] text-white px-8 py-3.5 rounded-xl font-semibold text-base shadow-sm hover:shadow-md transition-colors cursor-pointer mb-10 inline-flex items-center justify-center"
               >
                 Join the waitlist
-              </button>
+              </motion.button>
 
               {/* Social Proof / Avatars Row */}
-              <div id="waitlist-social-proof" className="flex items-center gap-3.5 pt-2">
+              <motion.div 
+                id="waitlist-social-proof"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+                className="flex items-center gap-3.5 pt-2"
+              >
                 <div className="flex -space-x-2.5 overflow-hidden p-0.5">
                   {/* Avatar 1 */}
                   <div className="inline-block h-8 w-8 sm:h-9 sm:w-9 rounded-full ring-2 ring-white bg-amber-200 overflow-hidden flex items-center justify-center text-amber-900 text-xs font-bold shadow-xs">
@@ -224,13 +253,16 @@ export default function Hero() {
                 <span className="text-xs sm:text-sm text-neutral-700 font-medium tracking-tight">
                   Join <span className="font-semibold text-neutral-900">7,500+ team</span> on the waitlist
                 </span>
-              </div>
+              </motion.div>
             </div>
 
             {/* Right Column: Interactive Graphic Card */}
             <div className="lg:col-span-6 xl:col-span-6 flex justify-center lg:justify-end">
-              <div 
-                id="hero-illustration-frame" 
+              <motion.div 
+                id="hero-illustration-frame"
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                 className="w-full max-w-lg bg-[#E7ECF0] rounded-[36px] sm:rounded-[44px] p-6 sm:p-10 relative overflow-hidden flex flex-col items-center shadow-xs"
               >
                 {/* Layered Back Card Accent */}
@@ -251,10 +283,7 @@ export default function Hero() {
                         </defs>
 
                         {/* Semicircle Gauge Segments */}
-                        {/* Radius = 75, Center = (100, 95), StrokeWidth = 26 */}
-                        
                         {/* Blue Segment (Sale ~ 58%) */}
-                        {/* Arc from 180 deg (left) to ~75 deg */}
                         <path
                           d="M 25 95 A 75 75 0 0 1 120 22.5"
                           fill="none"
@@ -264,7 +293,6 @@ export default function Hero() {
                         />
 
                         {/* Green Segment (Return ~ 24%) */}
-                        {/* Arc from ~70 deg to ~30 deg */}
                         <path
                           d="M 125 24 A 75 75 0 0 1 168 53"
                           fill="none"
@@ -274,7 +302,6 @@ export default function Hero() {
                         />
 
                         {/* Yellow Segment (Distribute ~ 18%) */}
-                        {/* Arc from ~26 deg to 0 deg */}
                         <path
                           d="M 171 58 A 75 75 0 0 1 175 95"
                           fill="none"
@@ -346,7 +373,7 @@ export default function Hero() {
                   </div>
 
                 </div>
-              </div>
+              </motion.div>
             </div>
 
           </div>

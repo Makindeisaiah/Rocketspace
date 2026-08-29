@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { 
   Sparkles, 
   LineChart as ChartIcon, 
@@ -98,30 +99,42 @@ export default function KeyFeatures() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col items-center">
         
         {/* 1. Pill Badge */}
-        <div 
+        <motion.div 
           id="key-features-badge"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border border-neutral-200/90 text-neutral-700 text-xs font-bold tracking-wider uppercase mb-5 shadow-2xs"
         >
           <Sparkles className="w-3.5 h-3.5 text-neutral-600" />
           <span>KEY FEATURES</span>
-        </div>
+        </motion.div>
 
         {/* 2. Main Heading */}
-        <h2 
+        <motion.h2 
           id="key-features-heading"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-neutral-900 tracking-tight text-center max-w-3xl leading-[1.18] mb-4"
         >
           Powerful Features to Grow <br className="hidden sm:inline" />
           Your Business.
-        </h2>
+        </motion.h2>
 
         {/* 3. Subtext Paragraph */}
-        <p 
+        <motion.p 
           id="key-features-subtext"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
           className="text-sm sm:text-base text-neutral-600 text-center max-w-xl leading-relaxed mb-12 sm:mb-16"
         >
           We offer smart tools to capture leads, streamline marketing, and drive conversion effortlessly.
-        </p>
+        </motion.p>
 
         {/* 4. Feature Cards Grid */}
         <div className="w-full max-w-6xl space-y-6 sm:space-y-8">
@@ -130,8 +143,12 @@ export default function KeyFeatures() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             
             {/* Card A: Real-Time Analytics */}
-            <div 
+            <motion.div 
               id="card-analytics"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
               className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm border border-neutral-100 flex flex-col justify-between"
             >
               <div>
@@ -158,7 +175,13 @@ export default function KeyFeatures() {
                   Reports
                 </div>
 
-                <div className="w-full h-56 relative">
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+                  className="w-full h-56 relative"
+                >
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart 
                       data={lineData} 
@@ -197,13 +220,17 @@ export default function KeyFeatures() {
                       />
                     </LineChart>
                   </ResponsiveContainer>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card B: Smart Email Campaigns */}
-            <div 
+            <motion.div 
               id="card-campaigns"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
               className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm border border-neutral-100 flex flex-col justify-between"
             >
               <div>
@@ -230,7 +257,13 @@ export default function KeyFeatures() {
                   Audience
                 </div>
 
-                <div className="w-full h-56 relative">
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
+                  className="w-full h-56 relative"
+                >
                   {/* Floating May Highlight Badge */}
                   <div className="absolute top-0 left-[43%] -translate-x-1/2 z-10">
                     <div className="bg-[#FF6B4A] text-white text-xs font-bold px-2.5 py-1 rounded-md shadow-sm relative">
@@ -262,15 +295,19 @@ export default function KeyFeatures() {
                       </Bar>
                     </BarChart>
                   </ResponsiveContainer>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 
           {/* Row 2: Full-Width Integration Card (Card C) */}
-          <div 
+          <motion.div 
             id="card-integration"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-sm border border-neutral-100"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -416,7 +453,7 @@ export default function KeyFeatures() {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

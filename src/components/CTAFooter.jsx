@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Mail, Phone, ArrowRight } from 'lucide-react';
 
 export default function CTAFooter() {
@@ -7,8 +8,12 @@ export default function CTAFooter() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* 1. Large CTA Banner Card */}
-        <div 
+        <motion.div 
           id="cta-banner"
+          initial={{ opacity: 0, scale: 0.96, y: 20 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
           className="w-full bg-[#0E5B5B] rounded-[32px] sm:rounded-[40px] px-6 py-16 sm:py-20 lg:py-24 text-center relative overflow-hidden shadow-lg"
         >
           {/* Decorative Abstract Organic Curves - Top Right */}
@@ -62,22 +67,36 @@ export default function CTAFooter() {
               Rocketspace.
             </h2>
 
-            <button 
+            <motion.button 
               id="banner-waitlist-btn"
-              className="bg-white hover:bg-neutral-100 text-[#0E5B5B] font-bold px-7 sm:px-8 py-3.5 rounded-full text-sm sm:text-base inline-flex items-center gap-2 shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer group"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="bg-white hover:bg-neutral-100 text-[#0E5B5B] font-bold px-7 sm:px-8 py-3.5 rounded-full text-sm sm:text-base inline-flex items-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer group"
             >
               <span>Join the Waitlist</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
 
         {/* 2. Main Footer Navigation Columns */}
         <div className="pt-16 sm:pt-20 pb-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8"
+          >
             
             {/* Column 1: Brand & Bio (Col 1-4) */}
-            <div className="lg:col-span-4 space-y-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.05, ease: "easeOut" }}
+              className="lg:col-span-4 space-y-4"
+            >
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 flex items-center justify-center">
                   <svg viewBox="0 0 32 32" className="w-7 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,10 +113,16 @@ export default function CTAFooter() {
               <p className="text-sm text-neutral-600 leading-relaxed max-w-sm">
                 Providing marketing tools to help businesses capture leads, boost conversions, and scale effortlessly.
               </p>
-            </div>
+            </motion.div>
 
             {/* Column 2: Quick Links (Col 5-7) */}
-            <div className="lg:col-span-3 space-y-3.5">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.15, ease: "easeOut" }}
+              className="lg:col-span-3 space-y-3.5"
+            >
               <h4 className="text-base font-bold text-neutral-900 tracking-tight">
                 Quick Links
               </h4>
@@ -115,10 +140,16 @@ export default function CTAFooter() {
                   <a href="#contact" className="hover:text-neutral-950 transition-colors">Contact</a>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
             {/* Column 3: Socials (Col 8-9) */}
-            <div className="lg:col-span-2 space-y-3.5">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.25, ease: "easeOut" }}
+              className="lg:col-span-2 space-y-3.5"
+            >
               <h4 className="text-base font-bold text-neutral-900 tracking-tight">
                 Socials
               </h4>
@@ -133,10 +164,16 @@ export default function CTAFooter() {
                   <a href="#instagram" className="hover:text-neutral-950 transition-colors">Instagram</a>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
             {/* Column 4: Get in Touch (Col 10-12) */}
-            <div className="lg:col-span-3 space-y-3.5">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.35, ease: "easeOut" }}
+              className="lg:col-span-3 space-y-3.5"
+            >
               <h4 className="text-base font-bold text-neutral-900 tracking-tight">
                 Get in Touch
               </h4>
@@ -154,9 +191,9 @@ export default function CTAFooter() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
         </div>
 
         {/* 3. Divider Line & Sub-Footer Bar */}
